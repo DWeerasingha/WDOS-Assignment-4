@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel = "stylesheet" type="text/css"  href="gammingequipment.css">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+  <script type = "text/javascript" src="gammingequipment.js"></script>>
+  <!-- Website Header -->
+  <div class="header">
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="title">THE GAMING HUB</div>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="upcominggames.html">Upcoming Games</a>
+      <a href="games.html">Games</a>
+      <a href="faq.html">FAQ</a>
+      <a href="gammingtips.html">Gaming Tips</a>
+      <a href="gammingequipment.html">Shop</a>
+    </nav>
+    <div class="mobile-menu">
+      <a href="index.html" onclick="toggleMenu()">Home</a>
+      <a href="about.html" onclick="toggleMenu()">About Us</a>
+      <a href="upcominggames.html" onclick="toggleMenu()">Upcoming Games</a>
+      <a href="games.html" onclick="toggleMenu()">Games</a>
+      <a href="faq.html" onclick="toggleMenu()">FAQ</a>
+      <a href="gammingtips.html" onclick="toggleMenu()">Gaming Tips</a>
+      <a href="gammingequipment.html" onclick="toggleMenu()">Gaming equipment</a>
+    </div>
+  </div>
+
+  <!-- New Cart Section --> 
+<section class="cart-section">
+  <h2>Shopping Cart</h2>
+  <table id="cartTable">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Details</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Cart items will be populated here -->
+    </tbody>
+  </table>
+
+  
+    <div class="cart-actions">
+      <button class="cta-button" onclick="transferFavoritesToCart()">Transfer Favorites to Cart</button>
+      <button class="cta-button" onclick="proceedToCheckout()">Buy Now</button>
+    </div>
+  </section>
+
+  
+<section class="gaming-equipment fade-in">
+  <h1>Processors</h1>
+
+  <!-- Processor 1 -->
+  <div class="product">
+    <img src="processor1.jpg" alt="processor 1">
+    <div class="product-content">
+      <h2>Intel Core Ultra 5 245K</h2>
+      <ul>
+        <li><strong>6 Performance cores</strong></li>
+        <li><strong>8 Efficient cores</strong></li>
+        <li><strong>14 Total Threads</strong></li>
+        <li><strong>Max Turbo Frequency 5.2 GHz</strong></li>
+      </ul>
+      <div class="price">Price: LKR 109,000</div>
+      <div class="action-buttons">
+        <button class="cta-button" onclick="addToCart('Intel Core Ultra 5 245K', 120000, ['24 cores', '6.0 GHz boost', '125W TDP'])">Add to Cart</button>
+        <button class="cta-button favorite" onclick="toggleFavorite('Intel Core Ultra 5 245K', this)">Favorite</button>
+        <span class="heart-icon">❤</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Processor 2 -->
+  <div class="product">
+    <img src="processor2.jpg" alt="processor2">
+    <div class="product-content">
+      <h2>Intel Core Ultra 7 267K </h2>
+      <ul>
+        <li><strong>8 Performance cores</strong></li>
+        <li><strong>12 Efficient cores</strong></li>
+        <li><strong>20 Total Threads</strong></li>
+        <li><strong>Max Turbo Frequency 5.5 GHz</strong></li>
+      </ul>
+      <div class="price">Price: LKR 134,500</div>
+      <div class="action-buttons">
+        <button class="cta-button" onclick="addToCart('Intel Core Ultra 7 267K', 95000, ['20 cores', '5.6 GHz boost', '125W TDP'])">Add to Cart</button>
+        <button class="cta-button favorite" onclick="toggleFavorite('Intel Core Ultra 7 267K', this)">Favorite</button>
+        <span class="heart-icon">❤</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Processor 3 -->
+<div class="product">
+  <img src="intel_ultra285k.jpg" alt="Intel Core Ultra285K">
+  <div class="product-content">
+    <h2>Intel Core Ultra285K</h2>
+    <ul>
+      <li><strong>Performance Cores:</strong> 8</li>
+      <li><strong>Efficient Cores:</strong> 16</li>
+      <li><strong>Total Threads:</strong> 24</li>
+      <li><strong>Max Turbo Frequency:</strong> 5.7 GHz</li>
+    </ul>
+    <div class="price">Price: LKR 194,000.</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('Intel Core Ultra285K', 75000, ['8 Performance cores', '16 Efficient cores', '24 Threads', '5.7 GHz Turbo'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('Intel Core Ultra285K', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+  <!-- Processor 4 -->
+<div class="product">
+  <img src="intel_i3_12100.jpg" alt="Intel Core I3-12100 12th Gen Desktop Processor">
+  <div class="product-content">
+    <h2>Intel Core I3-12100 12th Gen </h2>
+    <ul>
+      <li><strong>Total Cores:</strong> 24</li>
+      <li><strong>Total Threads:</strong> 24</li>
+    </ul>
+    <div class="price">Price: LKR 200,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('Intel Core I3-12100 12th Gen Desktop Processor', 200000, ['24 Total Cores', '24 Total Threads'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('Intel Core I3-12100 12th Gen Desktop Processor', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+  <!-- Processor 5 -->
+  <div class="product">
+    <img src="amd_7700x.jpg" alt="AMD Ryzen 7 7700X">
+    <div class="product-content">
+      <h2>AMD Ryzen 7 7700X</h2>
+      <ul>
+        <li><strong>Cores:</strong> 8</li>
+        <li><strong>Base Clock:</strong> 4.5 GHz</li>
+        <li><strong>Boost Clock:</strong> 5.4 GHz</li>
+        <li><strong>TDP:</strong> 105W</li>
+      </ul>
+      <div class="price">Price: LKR 185,000</div>
+      <div class="action-buttons">
+        <button class="cta-button" onclick="addToCart('AMD Ryzen 7 7700X', 85000, ['8 cores', '5.4 GHz boost', '105W TDP'])">Add to Cart</button>
+        <button class="cta-button favorite" onclick="toggleFavorite('AMD Ryzen 7 7700X', this)">Favorite</button>
+        <span class="heart-icon">❤</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Processor 6 -->
+  <div class="product">
+    <img src="amd_5600x.jpg" alt="AMD Ryzen 5 5600X">
+    <div class="product-content">
+      <h2>AMD Ryzen 5 5600X</h2>
+      <ul>
+        <li><strong>Cores:</strong> 6</li>
+        <li><strong>Base Clock:</strong> 3.7 GHz</li>
+        <li><strong>Boost Clock:</strong> 4.6 GHz</li>
+        <li><strong>TDP:</strong> 65W</li>
+      </ul>
+      <div class="price">Price: LKR 145,000</div>
+      <div class="action-buttons">
+        <button class="cta-button" onclick="addToCart('AMD Ryzen 5 5600X', 45000, ['6 cores', '4.6 GHz boost', '65W TDP'])">Add to Cart</button>
+        <button class="cta-button favorite" onclick="toggleFavorite('AMD Ryzen 5 5600X', this)">Favorite</button>
+        <span class="heart-icon">❤</span>
+      </div>
+    </div>
+  </div>
+
+  
+  
+  <h1>Graphic Cards </h1>
+
+  <!-- Graphic card 1 -->
+<div class="product">
+  <img src="nvidia_rtx4090.jpg" alt="NVIDIA GeForce RTX 4090">
+  <div class="product-content">
+    <h2>NVIDIA GeForce RTX 4090</h2>
+    <ul>
+      <li><strong>Memory:</strong> 24 GB GDDR6X</li>
+      <li><strong>CUDA Cores:</strong> 16,384</li>
+      <li><strong>Boost Clock:</strong> 2.52 GHz</li>
+      <li><strong>Power Draw:</strong> 450 W</li>
+    </ul>
+    <div class="price">Price: LKR 120,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('NVIDIA GeForce RTX 4090', 120000, ['24 GB GDDR6X Memory', '16,384 CUDA Cores', '2.52 GHz Boost Clock', '450 W Power Draw'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('NVIDIA GeForce RTX 4090', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Graphic card 2 -->
+<div class="product">
+  <img src="amd_rx7900xtx.jpg" alt="AMD Radeon RX 7900 XTX">
+  <div class="product-content">
+    <h2>AMD Radeon RX 7900 XTX</h2>
+    <ul>
+      <li><strong>Memory:</strong> 24 GB GDDR6</li>
+      <li><strong>Compute Units:</strong> 96</li>
+      <li><strong>Boost Clock:</strong> 2.5 GHz</li>
+      <li><strong>Power Draw:</strong> 355 W</li>
+    </ul>
+    <div class="price">Price: LKR 400,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('AMD Radeon RX 7900 XTX', 400000, ['24 GB GDDR6 Memory', '96 Compute Units', '2.5 GHz Boost Clock', '355 W Power Draw'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('AMD Radeon RX 7900 XTX', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Graphic card 3 -->
+<div class="product">
+  <img src="nvidia_rtx4070ti.jpg" alt="NVIDIA GeForce RTX 4070 Ti">
+  <div class="product-content">
+    <h2>NVIDIA GeForce RTX 4070 Ti</h2>
+    <ul>
+      <li><strong>Memory:</strong> 12 GB GDDR6X</li>
+      <li><strong>CUDA Cores:</strong> 7,680</li>
+      <li><strong>Boost Clock:</strong> 2.61 GHz</li>
+      <li><strong>Power Draw:</strong> 285 W</li>
+    </ul>
+    <div class="price">Price: LKR 457,500</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('NVIDIA GeForce RTX 4070 Ti', 457500, ['12 GB GDDR6X Memory', '7,680 CUDA Cores', '2.61 GHz Boost Clock', '285 W Power Draw'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('NVIDIA GeForce RTX 4070 Ti', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Graphic card 4 -->
+<div class="product">
+  <img src="amd_rx7800xt.jpg" alt="AMD Radeon RX 7800 XT">
+  <div class="product-content">
+    <h2>AMD Radeon RX 7800 XT</h2>
+    <ul>
+      <li><strong>Memory:</strong> 16 GB GDDR6</li>
+      <li><strong>Target Resolution:</strong> 1440p gaming</li>
+      <li><strong>Average FPS @ 1440p Max:</strong> 127 FPS in Call of Duty: Modern Warfare 2</li>
+      <li><strong>Power Draw:</strong> Approximately 263 W</li>
+    </ul>
+    <div class="price">Price: LKR 300,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('AMD Radeon RX 7800 XT', 300000, ['16 GB GDDR6 Memory', '1440p gaming', '127 FPS @ 1440p Max', '263 W Power Draw'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('AMD Radeon RX 7800 XT', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Graphic card 5 -->
+<div class="product">
+  <img src="amd_rx7700xt.jpg" alt="AMD Radeon RX 7700 XT">
+  <div class="product-content">
+    <h2>AMD Radeon RX 7700 XT</h2>
+    <ul>
+      <li><strong>Memory:</strong> 12 GB GDDR6</li>
+      <li><strong>Boost Clock:</strong> Up to 2.6 GHz</li>
+      <li><strong>Average FPS @ 1440p Max:</strong> 106 FPS in Call of Duty: Modern Warfare 2</li>
+      <li><strong>Power Draw:</strong> 245 W</li>
+    </ul>
+    <div class="price">Price: LKR 250,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('AMD Radeon RX 7700 XT', 250000, ['12 GB GDDR6 Memory', 'Up to 2.6 GHz Boost Clock', '106 FPS @ 1440p Max', '245 W Power Draw'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('AMD Radeon RX 7700 XT', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Graphic card 6 -->
+<div class="product">
+  <img src="nvidia_rtx5060ti.jpg" alt="NVIDIA GeForce RTX 5060 Ti">
+  <div class="product-content">
+    <h2>NVIDIA GeForce RTX 5060 Ti</h2>
+    <ul>
+      <li><strong>Memory:</strong> 8 GB or 16 GB GDDR7</li>
+      <li><strong>CUDA Cores:</strong> 4,608</li>
+      <li><strong>Boost Clock:</strong> 2.57 GHz</li>
+      <li><strong>Power Draw:</strong> 180 W</li>
+    </ul>
+    <div class="price">Price: LKR 250,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('NVIDIA GeForce RTX 5060 Ti', 250000, ['8 GB or 16 GB GDDR7 Memory', '4,608 CUDA Cores', '2.57 GHz Boost Clock', '180 W Power Draw'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('NVIDIA GeForce RTX 5060 Ti', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+
+<h1>Mother Boards</h1>
+
+<!-- Mother Board 1 -->
+<div class="product">
+  <img src="asus_tuf_b760m.jpg" alt="ASUS TUF GAMING B760M-PLUS WIFI">
+  <div class="product-content">
+    <h2>ASUS TUF GAMING B760M-PLUS WIFI</h2>
+    <ul>
+      <li><strong>Socket:</strong> Intel LGA 1700</li>
+      <li><strong>Chipset:</strong> Intel B760</li>
+      <li><strong>Memory Support:</strong> DDR5</li>
+      <li><strong>Form Factor:</strong> Micro-ATX</li>
+    </ul>
+    <div class="price">Price: Rs. 86,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('ASUS TUF GAMING B760M-PLUS WIFI', 86000, ['Intel LGA 1700 Socket', 'Intel B760 Chipset', 'DDR5 Memory Support', 'Micro-ATX Form Factor'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('ASUS TUF GAMING B760M-PLUS WIFI', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Mother Board 2 -->
+<div class="product">
+  <img src="msi_a520m.jpg" alt="MSI A520M-A PRO">
+  <div class="product-content">
+    <h2>MSI A520M-A PRO</h2>
+    <ul>
+      <li><strong>Socket:</strong> AMD AM4</li>
+      <li><strong>Chipset:</strong> AMD A520</li>
+      <li><strong>Memory Support:</strong> DDR4</li>
+      <li><strong>Form Factor:</strong> Micro-ATX</li>
+    </ul>
+    <div class="price">Price: Rs. 24,500</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('MSI A520M-A PRO', 24500, ['AMD AM4 Socket', 'AMD A520 Chipset', 'DDR4 Memory Support', 'Micro-ATX Form Factor'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('MSI A520M-A PRO', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Mother Board 3 -->
+<div class="product">
+  <img src="gigabyte_a520m.jpg" alt="Gigabyte A520M K V2">
+  <div class="product-content">
+    <h2>Gigabyte A520M K V2</h2>
+    <ul>
+      <li><strong>Socket:</strong> AMD AM4</li>
+      <li><strong>Chipset:</strong> AMD A520</li>
+      <li><strong>Memory Support:</strong> DDR4</li>
+      <li><strong>Form Factor:</strong> Micro-ATX</li>
+    </ul>
+    <div class="price">Price: Rs. 24,500</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('Gigabyte A520M K V2', 24500, ['AMD AM4 Socket', 'AMD A520 Chipset', 'DDR4 Memory Support', 'Micro-ATX Form Factor'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('Gigabyte A520M K V2', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Mother Board 4 -->
+<div class="product">
+  <img src="msi_b550m.jpg" alt="MSI B550M PRO-VDH WIFI">
+  <div class="product-content">
+    <h2>MSI B550M PRO-VDH WIFI</h2>
+    <ul>
+      <li><strong>Socket:</strong> AMD AM4</li>
+      <li><strong>Chipset:</strong> AMD B550</li>
+      <li><strong>Memory Support:</strong> DDR4</li>
+      <li><strong>Form Factor:</strong> Micro-ATX</li>
+    </ul>
+    <div class="price">Price: Rs. 54,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('MSI B550M PRO-VDH WIFI', 54000, ['AMD AM4 Socket', 'AMD B550 Chipset', 'DDR4 Memory Support', 'Micro-ATX Form Factor'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('MSI B550M PRO-VDH WIFI', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Mother Board 5 -->
+<div class="product">
+  <img src="asus_prime_b760m.jpg" alt="ASUS PRIME B760M-K D4">
+  <div class="product-content">
+    <h2>ASUS PRIME B760M-K D4</h2>
+    <ul>
+      <li><strong>Socket:</strong> Intel LGA 1700</li>
+      <li><strong>Chipset:</strong> Intel B760</li>
+      <li><strong>Memory Support:</strong> DDR4</li>
+      <li><strong>Form Factor:</strong> Micro-ATX</li>
+    </ul>
+    <div class="price">Price: Rs. 47,500</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('ASUS PRIME B760M-K D4', 47500, ['Intel LGA 1700 Socket', 'Intel B760 Chipset', 'DDR4 Memory Support', 'Micro-ATX Form Factor'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('ASUS PRIME B760M-K D4', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Mother Board 6 -->
+<div class="product">
+  <img src="msi_pro_b760m.jpg" alt="MSI PRO B760M-P DDR5">
+  <div class="product-content">
+    <h2>MSI PRO B760M-P DDR5</h2>
+    <ul>
+      <li><strong>Socket:</strong> Intel LGA 1700</li>
+      <li><strong>Chipset:</strong> Intel B760</li>
+      <li><strong>Memory Support:</strong> DDR5</li>
+      <li><strong>Form Factor:</strong> Micro-ATX</li>
+    </ul>
+    <div class="price">Price: Rs. 51,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('MSI PRO B760M-P DDR5', 51000, ['Intel LGA 1700 Socket', 'Intel B760 Chipset', 'DDR5 Memory Support', 'Micro-ATX Form Factor'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('MSI PRO B760M-P DDR5', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<h1>Memory</h1>
+
+<!-- T-Force DELTA RGB 96GB DDR5 6800MHz -->
+<div class="product">
+  <img src="tforce_delta_rgb.jpg" alt="T-Force DELTA RGB 96GB DDR5 6800MHz">
+  <div class="product-content">
+    <h2>T-Force DELTA RGB 96GB DDR5 6800MHz</h2>
+    <ul>
+      <li><strong>Type:</strong> DDR5</li>
+      <li><strong>Capacity:</strong> 96GB (2x48GB)</li>
+      <li><strong>Speed:</strong> 6800MHz</li>
+      <li><strong>Features:</strong> RGB lighting</li>
+    </ul>
+    <div class="price">Price: Rs. 158,500</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('T-Force DELTA RGB 96GB DDR5 6800MHz', 158500, ['DDR5', '96GB (2x48GB)', '6800MHz', 'RGB lighting'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('T-Force DELTA RGB 96GB DDR5 6800MHz', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Corsair Vengeance 32GB DDR5 5600MHz -->
+<div class="product">
+  <img src="corsair_vengeance_ddr5.jpg" alt="Corsair Vengeance 32GB DDR5 5600MHz">
+  <div class="product-content">
+    <h2>Corsair Vengeance 32GB DDR5 5600MHz</h2>
+    <ul>
+      <li><strong>Type:</strong> DDR5</li>
+      <li><strong>Capacity:</strong> 32GB</li>
+      <li><strong>Speed:</strong> 5600MHz</li>
+      <li><strong>Compatibility:</strong> Intel XMP</li>
+    </ul>
+    <div class="price">Price: Rs. 36,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('Corsair Vengeance 32GB DDR5 5600MHz', 36000, ['DDR5', '32GB', '5600MHz', 'Intel XMP'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('Corsair Vengeance 32GB DDR5 5600MHz', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- G.SKILL Ripjaws V 32GB DDR4 3200MHz -->
+<div class="product">
+  <img src="gskill_ripjaws_v.jpg" alt="G.SKILL Ripjaws V 32GB DDR4 3200MHz">
+  <div class="product-content">
+    <h2>G.SKILL Ripjaws V 32GB DDR4 3200MHz</h2>
+    <ul>
+      <li><strong>Type:</strong> DDR4</li>
+      <li><strong>Capacity:</strong> 32GB</li>
+      <li><strong>Speed:</strong> 3200MHz</li>
+      <li><strong>Form Factor:</strong> Desktop DIMM</li>
+    </ul>
+    <div class="price">Price: Rs. 27,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('G.SKILL Ripjaws V 32GB DDR4 3200MHz', 27000, ['DDR4', '32GB', '3200MHz', 'Desktop DIMM'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('G.SKILL Ripjaws V 32GB DDR4 3200MHz', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Corsair Vengeance LPX 16GB DDR4 3200MHz -->
+<div class="product">
+  <img src="corsair_vengeance_lpx.jpg" alt="Corsair Vengeance LPX 16GB DDR4 3200MHz">
+  <div class="product-content">
+    <h2>Corsair Vengeance LPX 16GB DDR4 3200MHz</h2>
+    <ul>
+      <li><strong>Type:</strong> DDR4</li>
+      <li><strong>Capacity:</strong> 16GB</li>
+      <li><strong>Speed:</strong> 3200MHz</li>
+      <li><strong>Form Factor:</strong> Desktop DIMM</li>
+    </ul>
+    <div class="price">Price: Rs. 10,500</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('Corsair Vengeance LPX 16GB DDR4 3200MHz', 10500, ['DDR4', '16GB', '3200MHz', 'Desktop DIMM'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('Corsair Vengeance LPX 16GB DDR4 3200MHz', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Lexar 16GB DDR4 3200MHz Laptop RAM -->
+<div class="product">
+  <img src="lexar_ddr4.jpg" alt="Lexar 16GB DDR4 3200MHz Laptop RAM">
+  <div class="product-content">
+    <h2>Lexar 16GB DDR4 3200MHz Laptop RAM</h2>
+    <ul>
+      <li><strong>Type:</strong> DDR4</li>
+      <li><strong>Capacity:</strong> 16GB</li>
+      <li><strong>Speed:</strong> 3200MHz</li>
+      <li><strong>Form Factor:</strong> SO-DIMM</li>
+    </ul>
+    <div class="price">Price: Rs. 10,200</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('Lexar 16GB DDR4 3200MHz Laptop RAM', 10200, ['DDR4', '16GB', '3200MHz', 'SO-DIMM'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('Lexar 16GB DDR4 3200MHz Laptop RAM', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Transcend 16GB DDR5 5600MHz Laptop RAM -->
+<div class="product">
+  <img src="transcend_ddr5.jpg" alt="Transcend 16GB DDR5 5600MHz Laptop RAM">
+  <div class="product-content">
+    <h2>Transcend 16GB DDR5 5600MHz Laptop RAM</h2>
+    <ul>
+      <li><strong>Type:</strong> DDR5</li>
+      <li><strong>Capacity:</strong> 16GB</li>
+      <li><strong>Speed:</strong> 5600MHz</li>
+      <li><strong>Form Factor:</strong> SO-DIMM</li>
+    </ul>
+    <div class="price">Price: Rs. 16,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('Transcend 16GB DDR5 5600MHz Laptop RAM', 16000, ['DDR5', '16GB', '5600MHz', 'SO-DIMM'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('Transcend 16GB DDR5 5600MHz Laptop RAM', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<h1>Hard Drives</h1>
+
+<!-- Seagate Expansion Portable Hard Drive 1TB -->
+<div class="product">
+  <img src="seagate_expansion_1tb.jpg" alt="Seagate Expansion Portable Hard Drive 1TB">
+  <div class="product-content">
+    <h2>Seagate Expansion Portable Hard Drive 1TB</h2>
+    <ul>
+      <li><strong>Type:</strong> External HDD</li>
+      <li><strong>Interface:</strong> USB 3.0</li>
+      <li><strong>Compatibility:</strong> Windows and Mac</li>
+      <li><strong>Warranty:</strong> 1 year</li>
+    </ul>
+    <div class="price">Price: Rs. 23,900</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('Seagate Expansion Portable Hard Drive 1TB', 23900, ['External HDD', 'USB 3.0', 'Windows and Mac', '1 year Warranty'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('Seagate Expansion Portable Hard Drive 1TB', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Samsung 980 NVMe M.2 SSD 1TB -->
+<div class="product">
+  <img src="samsung_980_nvme.jpg" alt="Samsung 980 NVMe M.2 SSD 1TB">
+  <div class="product-content">
+    <h2>Samsung 980 NVMe M.2 SSD 1TB</h2>
+    <ul>
+      <li><strong>Type:</strong> Internal SSD (NVMe M.2)</li>
+      <li><strong>Sequential Read/Write:</strong> 3500/3000 MB/s</li>
+      <li><strong>Interface:</strong> PCIe Gen 3.0 x4</li>
+      <li><strong>Form Factor:</strong> M.2 2280</li>
+    </ul>
+    <div class="price">Price: Rs. 33,000</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('Samsung 980 NVMe M.2 SSD 1TB', 33000, ['Internal SSD (NVMe M.2)', '3500/3000 MB/s', 'PCIe Gen 3.0 x4', 'M.2 2280'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('Samsung 980 NVMe M.2 SSD 1TB', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Western Digital 4TB WD Blue PC Hard Drive -->
+<div class="product">
+  <img src="wd_blue_4tb.jpg" alt="Western Digital 4TB WD Blue PC Hard Drive">
+  <div class="product-content">
+    <h2>Western Digital 4TB WD Blue PC Hard Drive</h2>
+    <ul>
+      <li><strong>Type:</strong> Internal HDD</li>
+      <li><strong>Form Factor:</strong> 3.5-inch</li>
+      <li><strong>Software:</strong> Includes Acronis True Image WD Edition</li>
+      <li><strong>Warranty:</strong> 2 years</li>
+    </ul>
+    <div class="price">Price: Rs. 42,990</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('Western Digital 4TB WD Blue PC Hard Drive', 42990, ['Internal HDD', '3.5-inch', 'Acronis True Image WD Edition', '2 years Warranty'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('Western Digital 4TB WD Blue PC Hard Drive', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Kingston A400 480GB SATA SSD -->
+<div class="product">
+  <img src="kingston_a400.jpg" alt="Kingston A400 480GB SATA SSD">
+  <div class="product-content">
+    <h2>Kingston A400 480GB SATA SSD</h2>
+    <ul>
+      <li><strong>Type:</strong> Internal SSD (SATA)</li>
+      <li><strong>Sequential Read/Write:</strong> 500/320 MB/s</li>
+      <li><strong>Form Factor:</strong> 2.5-inch</li>
+      <li><strong>Warranty:</strong> Included</li>
+    </ul>
+    <div class="price">Price: Rs. 12,500</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('Kingston A400 480GB SATA SSD', 12500, ['Internal SSD (SATA)', '500/320 MB/s', '2.5-inch', 'Warranty Included'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('Kingston A400 480GB SATA SSD', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- Lexar NM620 512GB M.2 NVMe SSD -->
+<div class="product">
+  <img src="lexar_nm620.jpg" alt="Lexar NM620 512GB M.2 NVMe SSD">
+  <div class="product-content">
+    <h2>Lexar NM620 512GB M.2 NVMe SSD</h2>
+    <ul>
+      <li><strong>Type:</strong> Internal SSD (NVMe M.2)</li>
+      <li><strong>Form Factor:</strong> M.2 2280</li>
+      <li><strong>Interface:</strong> PCIe Gen 3.0 x4</li>
+      <li><strong>Warranty:</strong> Included</li>
+    </ul>
+    <div class="price">Price: Rs. 13,500</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('Lexar NM620 512GB M.2 NVMe SSD', 13500, ['Internal SSD (NVMe M.2)', 'M.2 2280', 'PCIe Gen 3.0 x4', 'Warranty Included'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('Lexar NM620 512GB M.2 NVMe SSD', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+<!-- ADATA HD710 Pro 4TB External Hard Drive -->
+<div class="product">
+  <img src="adata_hd710pro.jpg" alt="ADATA HD710 Pro 4TB External Hard Drive">
+  <div class="product-content">
+    <h2>ADATA HD710 Pro 4TB External Hard Drive</h2>
+    <ul>
+      <li><strong>Type:</strong> External HDD</li>
+      <li><strong>Interface:</strong> USB 3.1</li>
+      <li><strong>Features:</strong> Shockproof design</li>
+      <li><strong>Warranty:</strong> Included</li>
+    </ul>
+    <div class="price">Price: Rs. 43,399</div>
+    <div class="action-buttons">
+      <button class="cta-button" onclick="addToCart('ADATA HD710 Pro 4TB External Hard Drive', 43399, ['External HDD', 'USB 3.1', 'Shockproof design', 'Warranty Included'])">Add to Cart</button>
+      <button class="cta-button favorite" onclick="toggleFavorite('ADATA HD710 Pro 4TB External Hard Drive', this)">Favorite</button>
+      <span class="heart-icon">❤</span>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+</section>
+
+  
+
+    
+  <!-- Footer Section -->
+  <footer>
+    <div>THE GAMING HUB</div>
+    <div>
+        &copy; 2025 The Gaming Hub. All rights reserved. <br>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</body>
+</html>

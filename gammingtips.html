@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Tips - The Gaming Hub</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #e0e0e0;
+      background-color: #121212;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffcc;
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+    }
+
+    a {
+      color: #ff6f61;
+      text-decoration: none;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    a:hover {
+      color: #ff3b2f;
+      text-shadow: 0 0 5px #ff3b2f, 0 0 10px #ff3b2f;
+    }
+
+    /* Header Styles */
+    .header {
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      padding: 20px;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      position: relative;
+    }
+
+    .header .title {
+      font-size: 36px;
+      font-weight: bold;
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+      margin-bottom: 10px;
+      color: #00ffcc;
+    }
+
+    .header .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .header .links a {
+      color: #e0e0e0;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 25px;
+      z-index: 1000;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background: #00ffcc;
+      margin: 5px 0;
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #1a1a1a;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+    }
+
+    .mobile-menu.active {
+      display: block;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 12px;
+      color: #e0e0e0;
+      text-align: center;
+      border-bottom: 1px solid #333;
+      font-size: 16px;
+    }
+
+    /* Gaming Tips Section */
+    .gaming-tips {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 20px auto;
+      background: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .gaming-tips.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gaming-tips h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #00ffcc;
+    }
+
+    .tip {
+      display: flex;
+      align-items: flex-start;
+      background-color: #262626;
+      margin-bottom: 30px;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .tip img {
+      width: 200px;
+      height: 200px;
+      border-radius: 8px;
+      margin-right: 30px;
+      object-fit: cover;
+    }
+
+    .tip-content {
+      flex: 1;
+    }
+
+    .tip-content h2 {
+      margin-top: 0;
+      color: #00ffcc;
+      font-size: 24px;
+    }
+
+    .tip-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #e0e0e0;
+      margin-top: 10px;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      color: #e0e0e0;
+      padding: 20px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    footer div {
+      text-align: center;
+      margin: 5px 10px;
+    }
+
+    footer a {
+      color: #e0e0e0;
+      text-decoration: none;
+      margin: 5px 10px;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #ff3b2f;
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .header .links {
+        display: none;
+      }
+
+      .header .title {
+        font-size: 28px;
+        margin-right: 50px;
+      }
+
+      .mobile-menu a {
+        font-size: 16px;
+        padding: 15px;
+      }
+
+      .tip {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .tip img {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .tip-content {
+        text-align: center;
+      }
+
+      footer {
+        padding: 20px 15px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      footer div {
+        margin: 10px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header .title {
+        font-size: 24px;
+      }
+
+      .hamburger {
+        right: 15px;
+        top: 20px;
+      }
+
+      .hamburger span {
+        width: 25px;
+      }
+
+      .gaming-tips h1 {
+        font-size: 24px;
+      }
+
+      .tip-content h2 {
+        font-size: 20px;
+      }
+
+      .tip-content p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      footer {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="title">THE GAMING HUB</div>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="upcominggames.html">Upcoming Games</a>
+      <a href="games.html">Games</a>
+      <a href="faq.html">FAQ</a>
+      <a href="gammingtips.html">Gaming Tips</a>
+      <a href="gammingequipment.html">Shop</a>
+    </nav>
+    <div class="mobile-menu">
+      <a href="index.html" onclick="toggleMenu()">Home</a>
+      <a href="about.html" onclick="toggleMenu()">About Us</a>
+      <a href="upcominggames.html" onclick="toggleMenu()">Upcoming Games</a>
+      <a href="games.html" onclick="toggleMenu()">Games</a>
+      <a href="faq.html" onclick="toggleMenu()">FAQ</a>
+      <a href="gammingtips.html" onclick="toggleMenu()">Gaming Tips</a>
+      <a href="gammingequipment.html" onclick="toggleMenu()">Shop</a>
+
+    </div>
+  </header>
+
+  <!-- Gaming Tips Section -->
+  <section class="gaming-tips fade-in">
+    <h1>Gaming Tips</h1>
+    <div class="tip">
+      <img src="tip1.jpg" alt="Tip 1 Image">
+      <div class="tip-content">
+        <h2>Tip 1: Master the Controls</h2>
+        <p>
+          Mastering the controls is the foundation of great gameplay. Spend time learning the keybindings, shortcuts, and mechanics of the game. Practice in training modes or tutorials to build muscle memory. Familiarity with controls allows you to react quickly and efficiently during intense moments. Customize controls to suit your preferences for better comfort and performance. Remember, even small adjustments can make a big difference in your gameplay experience.
+        </p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <img src="tip2.jpg" alt="Tip 2 Image">
+      <div class="tip-content">
+        <h2>Tip 2: Practice Regularly</h2>
+        <p>
+          Consistent practice is essential for improving your gaming skills. Dedicate time daily or weekly to play and refine your strategies. Focus on areas where you struggle, such as aiming, timing, or decision-making. Use practice modes or play against AI to build confidence. Regular practice helps you stay sharp and adapt to new challenges. Remember, even professional gamers practice relentlessly to maintain their edge.
+        </p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <img src="tip3.jpg" alt="Tip 3 Image">
+      <div class="tip-content">
+        <h2>Tip 3: Watch Tutorials and Guides</h2>
+        <p>
+          Watching tutorials and guides from experienced players can significantly improve your gameplay. Learn advanced strategies, hidden mechanics, and optimal builds. Platforms like YouTube and Twitch are great resources for finding helpful content. Take notes and apply what you learn in your own games. Watching professional players can also inspire you to try new techniques and improve your overall performance.
+        </p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <img src="tip4.jpg" alt="Tip 4 Image">
+      <div class="tip-content">
+        <h2>Tip 4: Stay Calm Under Pressure</h2>
+        <p>
+          Staying calm during intense moments is crucial for making better decisions. Avoid panicking, as it can lead to costly mistakes. Take deep breaths and focus on the task at hand. Practice mindfulness techniques to improve your mental resilience. Staying calm also helps you communicate effectively with teammates in multiplayer games. Remember, a clear mind leads to better performance and more enjoyable gameplay.
+        </p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <img src="tip5.jpg" alt="Tip 5 Image">
+      <div class="tip-content">
+        <h2>Tip 5: Customize Your Settings</h2>
+        <p>
+          Customizing your game settings can greatly enhance your gaming experience. Adjust graphics, controls, and audio settings to suit your preferences. Lower graphics settings can improve performance on older devices. Rebind keys or buttons for better comfort and efficiency. Experiment with different settings to find what works best for you. A well-optimized setup can make gameplay smoother and more enjoyable.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div>THE GAMING HUB</div>
+    <div>
+        &copy; 2025 The Gaming Hub. All rights reserved. <br>
+    </div>
+</footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.mobile-menu');
+      menu.classList.toggle('active');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const menu = document.querySelector('.mobile-menu');
+      const hamburger = document.querySelector('.hamburger');
+      if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+        menu.classList.remove('active');
+      }
+    });
+
+    // Close menu on window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        document.querySelector('.mobile-menu').classList.remove('active');
+      }
+    });
+
+    // Scroll animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
+</body>
+</html>

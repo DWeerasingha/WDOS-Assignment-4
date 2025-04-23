@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - The Gaming Hub</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #e0e0e0;
+            background-color: #121212;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00ffcc;
+            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+        }
+
+        a {
+            color: #ff6f61;
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff3b2f;
+            text-shadow: 0 0 5px #ff3b2f, 0 0 10px #ff3b2f;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            padding: 20px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+        }
+
+        .header .title {
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+
+        .header .links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .header .links a {
+            color: #e0e0e0;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 25px;
+            z-index: 1000;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: #00ffcc;
+            margin: 5px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px;
+            color: #e0e0e0;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            font-size: 16px;
+        }
+
+        /* FAQ Section Styles */
+        .faq-section {
+            padding: 40px 20px;
+            background: #1a1a1a;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .faq-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .faq-section h1 {
+            font-size: 36px;
+            color: #00ffcc;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00ffcc;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 24px;
+            color: #555;
+        }
+
+        .faq-answer {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: #e0e0e0;
+            padding: 20px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        footer div {
+            text-align: center;
+            margin: 5px 10px;
+        }
+
+        footer a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 5px 10px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff3b2f;
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .header .links {
+                display: none;
+            }
+
+            .header .title {
+                font-size: 28px;
+                margin-right: 50px;
+            }
+
+            .mobile-menu a {
+                font-size: 16px;
+                padding: 15px;
+            }
+
+            .faq-question {
+                font-size: 18px;
+            }
+
+            .faq-answer {
+                font-size: 14px;
+            }
+
+            footer {
+                padding: 20px 15px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            footer div {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header .title {
+                font-size: 24px;
+            }
+
+            .hamburger {
+                right: 15px;
+                top: 20px;
+            }
+
+            .hamburger span {
+                width: 25px;
+            }
+
+            .faq-section h1 {
+                font-size: 24px;
+            }
+
+            .faq-question {
+                font-size: 16px;
+            }
+
+            .faq-answer {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            footer {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Website Header -->
+    <div class="header">
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="title">THE GAMING HUB</div>
+        <nav class="links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="upcominggames.html">Upcoming Games</a>
+          <a href="games.html">Games</a>
+          <a href="faq.html">FAQ</a>
+          <a href="gammingtips.html">Gaming Tips</a>
+          <a href="gammingequipment.html">Shop</a>
+        </nav>
+        <div class="mobile-menu">
+          <a href="index.html" onclick="toggleMenu()">Home</a>
+          <a href="about.html" onclick="toggleMenu()">About Us</a>
+          <a href="upcominggames.html" onclick="toggleMenu()">Upcoming Games</a>
+          <a href="games.html" onclick="toggleMenu()">Games</a>
+          <a href="faq.html" onclick="toggleMenu()">FAQ</a>
+          <a href="gammingtips.html" onclick="toggleMenu()">Gaming Tips</a>
+          <a href="gammingequipment.html" onclick="toggleMenu()">Shop</a>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section fade-in">
+        <h1>Frequently Asked Questions</h1>
+
+        <!-- FAQ Items -->
+        <div class="faq-item">
+            <div class="faq-question">What makes The Gaming Hub different from other gaming stores?</div>
+            <div class="faq-answer">
+                At The Gaming Hub, we offer more than just games and consoles. We provide a complete gaming experience with exclusive deals, expert insights, and a passionate community of gamers. Our commitment to quality, customer service, and innovation sets us apart.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What kind of gaming accessories do you offer?</div>
+            <div class="faq-answer">
+                We offer a premium selection of gaming gear, including high-quality gaming PCs, keyboards, mice, headsets, and more. Our products are designed for precision, durability, and comfort to enhance your gaming performance.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Do you ship internationally?</div>
+            <div class="faq-answer">
+                Yes, we offer fast shipping to many countries worldwide. Check our shipping policy for more details on delivery times and costs.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I return a product if I'm not satisfied?</div>
+            <div class="faq-answer">
+                Absolutely! We offer hassle-free returns within 30 days of purchase. Please ensure the product is in its original condition and packaging.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How can I join The Gaming Hub community?</div>
+            <div class="faq-answer">
+                You can join our vibrant gamer community by signing up on our website. Participate in discussions, tournaments, and exclusive events to connect with like-minded gamers.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Do you offer gaming tips for beginners?</div>
+            <div class="faq-answer">
+                Yes, we have a dedicated section for gaming tips and insights. Whether you're a beginner or a pro, you'll find expert advice, strategies, and hidden secrets to level up your gameplay.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Are your gaming PCs customizable?</div>
+            <div class="faq-answer">
+                Yes, we offer customizable gaming PCs to suit your specific needs. Choose from a variety of components to build the ultimate gaming rig.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What payment methods do you accept?</div>
+            <div class="faq-answer">
+                We accept all major credit cards, PayPal, and other secure payment methods. Your transactions are safe and encrypted.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div>THE GAMING HUB</div>
+        <div>
+            &copy; 2025 The Gaming Hub. All rights reserved. <br>
+        </div>
+    </footer>
+
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.mobile-menu');
+            menu.classList.toggle('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.querySelector('.mobile-menu');
+            const hamburger = document.querySelector('.hamburger');
+            if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Close menu on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.querySelector('.mobile-menu').classList.remove('active');
+            }
+        });
+
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => observer.observe(section));
+        });
+
+        // JavaScript to toggle FAQ answers
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

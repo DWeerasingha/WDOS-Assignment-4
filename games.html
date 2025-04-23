@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Store - The Gaming Hub</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #e0e0e0;
+      background-color: #121212;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: #00ffcc;
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+    }
+
+    a {
+      color: #ff6f61;
+      text-decoration: none;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    a:hover {
+      color: #ff3b2f;
+      text-shadow: 0 0 5px #ff3b2f, 0 0 10px #ff3b2f;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    /* Header Styles */
+    .header {
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      padding: 20px;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      position: relative;
+    }
+
+    .header .title {
+      font-size: 36px;
+      font-weight: bold;
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+      margin-bottom: 10px;
+      color: #00ffcc;
+    }
+
+    .header .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .header .links a {
+      color: #e0e0e0;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 25px;
+      z-index: 1000;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background: #00ffcc;
+      margin: 5px 0;
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #1a1a1a;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+    }
+
+    .mobile-menu.active {
+      display: block;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 12px;
+      color: #e0e0e0;
+      text-align: center;
+      border-bottom: 1px solid #333;
+      font-size: 16px;
+    }
+
+    /* Gaming Store Section */
+    .gaming-store {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 20px auto;
+      background: #1a1a1a;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .gaming-store.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gaming-store h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #00ffcc;
+    }
+
+    .game {
+      display: flex;
+      align-items: flex-start;
+      background-color: #262626;
+      margin-bottom: 30px;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .game img {
+      width: 200px;
+      height: 200px;
+      border-radius: 8px;
+      margin-right: 30px;
+      object-fit: cover;
+    }
+
+    .game-content {
+      flex: 1;
+    }
+
+    .game-content h2 {
+      margin-top: 0;
+      color: #00ffcc;
+      font-size: 24px;
+    }
+
+    .game-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #e0e0e0;
+      margin-top: 10px;
+    }
+
+    .game-content ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .game-content ul li {
+      margin: 10px 0;
+      font-size: 16px;
+      color: #e0e0e0;
+    }
+
+    .game-content .price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ff6f61;
+      margin-top: 15px;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      color: #e0e0e0;
+      padding: 20px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    footer div {
+      text-align: center;
+      margin: 5px 10px;
+    }
+
+    footer a {
+      color: #e0e0e0;
+      text-decoration: none;
+      margin: 5px 10px;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #ff3b2f;
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .header .links {
+        display: none;
+      }
+
+      .header .title {
+        font-size: 28px;
+        margin-right: 50px;
+      }
+
+      .mobile-menu a {
+        font-size: 16px;
+        padding: 15px;
+      }
+
+      .game {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .game img {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .game-content {
+        text-align: center;
+      }
+
+      footer {
+        padding: 20px 15px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      footer div {
+        margin: 10px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header .title {
+        font-size: 24px;
+      }
+
+      .hamburger {
+        right: 15px;
+        top: 20px;
+      }
+
+      .hamburger span {
+        width: 25px;
+      }
+
+      .gaming-store h1 {
+        font-size: 24px;
+      }
+
+      .game-content h2 {
+        font-size: 20px;
+      }
+
+      .game-content p {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .game-content ul li {
+        font-size: 14px;
+      }
+
+      .game-content .price {
+        font-size: 16px;
+      }
+
+      footer {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Website Header -->
+  <div class="header">
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="title">THE GAMING HUB</div>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="upcominggames.html">Upcoming Games</a>
+      <a href="games.html">Games</a>
+      <a href="faq.html">FAQ</a>
+      <a href="gammingtips.html">Gaming Tips</a>
+      <a href="gammingequipment.html">Shop</a>
+    </nav>
+    <div class="mobile-menu">
+      <a href="index.html" onclick="toggleMenu()">Home</a>
+      <a href="about.html" onclick="toggleMenu()">About Us</a>
+      <a href="upcominggames.html" onclick="toggleMenu()">Upcoming Games</a>
+      <a href="games.html" onclick="toggleMenu()">Games</a>
+      <a href="faq.html" onclick="toggleMenu()">FAQ</a>
+      <a href="gammingtips.html" onclick="toggleMenu()">Gaming Tips</a>
+      <a href="gammingequipment.html" onclick="toggleMenu()">Shop</a>
+    </div>
+  </div>
+
+  <!-- Gaming Store Section -->
+  <section class="gaming-store fade-in">
+    <h1>Gaming Store</h1>
+    <div class="game">
+      <img src="gtav.jpeg" alt="GTA 5">
+      <div class="game-content">
+        <h2>GTA 5</h2>
+        <p>
+          Grand Theft Auto V is an action-adventure game set in the fictional city of Los Santos. Explore a vast open world, complete missions, and engage in multiplayer mayhem.
+        </p>
+        <ul>
+          <li><strong>Release Date:</strong> September 17, 2013</li>
+          <li><strong>Genre:</strong> Action, Adventure</li>
+          <li><strong>System Requirements:</strong> Intel Core 2 Quad CPU, 4GB RAM, NVIDIA 9800 GT 1GB</li>
+        </ul>
+        <div class="price">Price: LKR 500</div>
+      </div>
+    </div>
+
+    <div class="game">
+      <img src="gtasanandreas.jpg" alt="GTA San Andreas">
+      <div class="game-content">
+        <h2>GTA San Andreas</h2>
+        <p>
+          Grand Theft Auto: San Andreas is a classic open-world game where you play as Carl Johnson, navigating the streets of San Andreas to reclaim his life.
+        </p>
+        <ul>
+          <li><strong>Release Date:</strong> October 26, 2004</li>
+          <li><strong>Genre:</strong> Action, Adventure</li>
+          <li><strong>System Requirements:</strong> 1GHz CPU, 256MB RAM, 64MB Video Card</li>
+        </ul>
+        <div class="price">Price: LKR 500</div>
+      </div>
+    </div>
+
+    <div class="game">
+      <img src="reddeadredemption.jpg" alt="Red Dead Redemption 2">
+      <div class="game-content">
+        <h2>Red Dead Redemption 2</h2>
+        <p>
+          Red Dead Redemption 2 is an epic tale of life in America's unforgiving heartland. Explore a vast open world as Arthur Morgan, an outlaw on the run.
+        </p>
+        <ul>
+          <li><strong>Release Date:</strong> October 26, 2018</li>
+          <li><strong>Genre:</strong> Action, Adventure</li>
+          <li><strong>System Requirements:</strong> Intel Core i7-4770K, 12GB RAM, NVIDIA GTX 1060 6GB</li>
+        </ul>
+        <div class="price">Price: LKR 500</div>
+      </div>
+    </div>
+
+    <div class="game">
+      <img src="needforspeedmostwanted.jpg" alt="Need For Speed Most Wanted">
+      <div class="game-content">
+        <h2>Need For Speed Most Wanted</h2>
+        <p>
+          Need for Speed: Most Wanted is a high-octane racing game where you compete to become the most wanted racer in the city.
+        </p>
+        <ul>
+          <li><strong>Release Date:</strong> November 15, 2005</li>
+          <li><strong>Genre:</strong> Racing</li>
+          <li><strong>System Requirements:</strong> 2.2GHz CPU, 512MB RAM, 64MB Video Card</li>
+        </ul>
+        <div class="price">Price: LKR 500</div>
+      </div>
+    </div>
+
+    <div class="game">
+      <img src="ageofempires3.jpg" alt="Age of Empires 3">
+      <div class="game-content">
+        <h2>Age of Empires 3</h2>
+        <p>
+          Age of Empires III is a real-time strategy game where you build and manage civilizations, wage wars, and conquer new territories.
+        </p>
+        <ul>
+          <li><strong>Release Date:</strong> October 18, 2005</li>
+          <li><strong>Genre:</strong> Strategy</li>
+          <li><strong>System Requirements:</strong> 1.4GHz CPU, 256MB RAM, 64MB Video Card</li>
+        </ul>
+        <div class="price">Price: LKR 500</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div>THE GAMING HUB</div>
+    <div>
+      &copy; 2025 The Gaming Hub. All rights reserved. <br>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.mobile-menu');
+      menu.classList.toggle('active');
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const menu = document.querySelector('.mobile-menu');
+      const hamburger = document.querySelector('.hamburger');
+      if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+        menu.classList.remove('active');
+      }
+    });
+
+    // Close menu on window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        document.querySelector('.mobile-menu').classList.remove('active');
+      }
+    });
+
+    // Scroll animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
+</body>
+</html>

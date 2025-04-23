@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - The Gaming Hub</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #e0e0e0;
+            background-color: #121212;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00ffcc;
+            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+        }
+
+        a {
+            color: #ff6f61;
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff3b2f;
+            text-shadow: 0 0 5px #ff3b2f, 0 0 10px #ff3b2f;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            padding: 20px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+        }
+
+        .header .title {
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+            margin-bottom: 10px;
+            color: #00ffcc;
+        }
+
+        .header .links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .header .links a {
+            color: #FF0000;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 25px;
+            z-index: 1000;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: #00ffcc;
+            margin: 5px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px;
+            color: #e0e0e0;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            font-size: 16px;
+        }
+
+        /* Section Styles */
+        .welcome-section, .why-choose, .gaming-gear, .gamer-community {
+            padding: 40px 20px;
+            text-align: center;
+            background: #1a1a1a;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .welcome-section.visible, .why-choose.visible, .gaming-gear.visible, .gamer-community.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .welcome-section h1, .why-choose h1, .gaming-gear h1, .gamer-community h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-section p, .why-choose p, .gaming-gear p {
+            font-size: 18px;
+            color: #e0e0e0;
+            margin: 20px 0;
+        }
+
+        .welcome-section img, .why-choose img, .gaming-gear img {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        /* Gamer Community Section */
+        .gamer-community {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .gamer-community .column {
+            width: 48%;
+            padding: 20px;
+            background: #262626;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: #e0e0e0;
+            padding: 20px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Mobile Optimized Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .header .links {
+                display: none;
+            }
+
+            .header .title {
+                font-size: 28px;
+                margin-right: 50px;
+            }
+
+            .mobile-menu a {
+                font-size: 16px;
+                padding: 15px;
+            }
+
+            .welcome-section, .why-choose, .gaming-gear, .gamer-community {
+                margin: 15px;
+                padding: 25px 15px;
+            }
+
+            .welcome-section h1, .why-choose h1, .gaming-gear h1, .gamer-community h1 {
+                font-size: 28px;
+                line-height: 1.3;
+            }
+
+            .welcome-section p, .why-choose p, .gaming-gear p {
+                font-size: 16px;
+                text-align: justify;
+                hyphens: auto;
+                -webkit-hyphens: auto;
+                margin: 15px 0;
+            }
+
+            .gamer-community {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .gamer-community .column {
+                width: 100%;
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            .welcome-section img, .why-choose img, .gaming-gear img {
+                max-width: 100%;
+                margin: 15px auto;
+            }
+
+            footer {
+                padding: 20px 15px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            footer div {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header .title {
+                font-size: 24px;
+            }
+
+            .hamburger {
+                right: 15px;
+                top: 20px;
+            }
+
+            .hamburger span {
+                width: 25px;
+            }
+
+            .welcome-section h1, .why-choose h1, .gaming-gear h1, .gamer-community h1 {
+                font-size: 24px;
+            }
+
+            .welcome-section p, .why-choose p, .gaming-gear p {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            .gamer-community .column h3 {
+                font-size: 18px;
+            }
+
+            .gamer-community .column p {
+                font-size: 14px;
+            }
+
+            footer {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Website Header -->
+    <div class="header">
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="title">THE GAMING HUB</div>
+        <nav class="links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="upcominggames.html">Upcoming Games</a>
+            <a href="games.html">Games</a>
+            <a href="faq.html">FAQ</a>
+            <a href="gammingtips.html">Gaming Tips</a>
+            <a href="gammingequipment.html">Shop</a>
+        
+        </nav>
+        <div class="mobile-menu">
+            <a href="index.html" onclick="toggleMenu()">Home</a>
+            <a href="about.html" onclick="toggleMenu()">About Us</a>
+            <a href="upcominggames.html" onclick="toggleMenu()">Upcoming Games</a>
+            <a href="games.html" onclick="toggleMenu()">Games</a>
+            <a href="faq.html" onclick="toggleMenu()">FAQ</a>
+            <a href="gammingtips.html" onclick="toggleMenu()">Gaming Tips</a>
+
+            <a href="gammingequipment.html" onclick="toggleMenu()">Shop</a>
+        </div>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="welcome-section fade-in">
+        <h1>Welcome to The Gaming Hub!</h1>
+        <p>Step into the ultimate destination for gaming enthusiasts! At The Gaming Hub, we are passionate about delivering an exceptional experience tailored to your gaming needs. Explore our extensive collection of the latest consoles, trending games, and must-have accessories—all designed to enhance your gaming adventures. Whether you're a seasoned player or just starting out, our platform ensures seamless navigation, stunning visuals, and compatibility across all your devices. Discover exclusive deals, gaming tips, and expert insights to elevate your journey. Experience the future of gaming with us and let The Gaming Hub be your trusted partner in the world of gaming!</p>
+        <img src="welcome_image.jpg" alt="Welcome Image">
+    </div>
+
+    <!-- Why Choose The Gaming Hub -->
+    <div class="why-choose fade-in">
+        <h1>Why Choose The Gaming Hub?</h1>
+        <p>At The Gaming Hub, we go beyond just offering games and consoles; we offer a complete gaming experience. Whether you're a casual gamer or a competitive eSports enthusiast, our store provides everything you need to level up your gaming experience. Our commitment to quality, customer service, and innovation sets us apart. With the latest releases and exclusive gaming bundles, you're sure to find something that fits your style. Enjoy fast shipping, hassle-free returns, and a community of passionate gamers ready to share tips and insights. Join us today and take your gaming journey to the next level!</p>
+        <img src="why-choose-us.jpg" alt="Why Choose Us Image">
+    </div>
+
+    <!-- Gaming Gear -->
+    <div class="gaming-gear fade-in">
+        <h1>Elevate Your Setup with High-Quality Gaming Gear!</h1>
+        <p>At The Gaming Hub, we understand that your equipment plays a vital role in unlocking your true gaming potential. That’s why we bring you a premium selection of high-quality gaming PCs, keyboards, mice, headsets, and more—all designed for precision, durability, and comfort. Our gaming gear is crafted to keep you ahead of the competition, delivering unparalleled performance and lightning-fast responsiveness. Whether you're upgrading your current setup or building the ultimate gaming rig, we've got the perfect products to enhance your gameplay. Shop now and experience the difference with gear trusted by gamers worldwide!</p>
+        <img src="equipments.jpg" alt="Gaming Gear Image">
+    </div>
+
+    <!-- Gamer Community & Tips -->
+    <div class="gamer-community fade-in">
+        <div class="column">
+            <h3>Join the Gamer Community</h3>
+            <p>At The Gaming Hub, we believe gaming is more than just playing—it's about connecting with others who share your passion. Our vibrant gamer community brings together enthusiasts from all over the world to share tips, discuss strategies, and celebrate the love of gaming. Whether you’re looking for teammates, joining tournaments, or simply engaging in friendly discussions, our community offers the perfect space to grow and have fun. Stay updated with the latest news, participate in exclusive events, and be part of a supportive network of like-minded gamers. Sign up today and start building friendships that go beyond the screen!</p>
+        </div>
+        <div class="column">
+            <h3>Gaming Tips & Insights: Level Up Your Play!</h3>
+            <p>At The Gaming Hub, we’re not just about gear and games—we’re here to help you sharpen your skills and master the art of gaming. Our curated collection of gaming tips, tricks, and strategies is designed to give you an edge, whether you're dominating multiplayer battles or exploring expansive single-player worlds. Learn from the pros with expert insights, discover hidden secrets in your favorite titles, and stay updated on the latest gaming trends. From beginner-friendly advice to advanced tactics, we’ve got you covered. Dive into our Gaming Tips & Insights section and unlock your full potential today!</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div>THE GAMING HUB</div>
+        <div>
+            &copy; 2025 The Gaming Hub. All rights reserved. <br>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.mobile-menu');
+            menu.classList.toggle('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.querySelector('.mobile-menu');
+            const hamburger = document.querySelector('.hamburger');
+            if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Close menu on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.querySelector('.mobile-menu').classList.remove('active');
+            }
+        });
+
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>

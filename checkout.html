@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - The Gaming Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="checkout.css">
+</head>
+<body>
+  <script type="text/javascript" src="checkout.js"></script>
+  
+  <!-- Header -->
+  <div class="header">
+    <div class="title">THE GAMING HUB</div>
+  </div>
+
+  <!-- Checkout Container -->
+  <div class="checkout-container">
+    <h1>CHECKOUT</h1>
+    <div class="checkout-section">
+      <div class="cart-summary">
+        <h2>ORDER SUMMARY</h2>
+        <table id="checkoutCart">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="total-price" id="totalPrice"></div>
+      </div>
+
+      <!-- Improved Payment Form -->
+      <div class="payment-form">
+        <h2>PAYMENT DETAILS</h2>
+        <form id="paymentForm">
+          <div class="form-group">
+            <label>CARD NUMBER</label>
+            <input type="text" id="cardNumber" placeholder="4242 4242 4242 4242" maxlength="19" required>
+            <div class="error-message" id="cardError"></div>
+          </div>
+
+          <div class="expiry-cvv-grid">
+            <div class="form-group">
+              <label>EXPIRY DATE</label>
+              <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" required>
+              <div class="error-message" id="expiryError"></div>
+            </div>
+            
+            <div class="form-group">
+              <label>CVV</label>
+              <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+              <div class="error-message" id="cvvError"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>CARDHOLDER NAME</label>
+            <input type="text" id="cardName" placeholder="JOHN DOE" required>
+          </div>
+          
+          <button type="submit" class="confirm-button">CONFIRM PURCHASE</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Added redirect script -->
+  <script>
+    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      window.location.href = 'thankyoupage.html';
+    });
+  </script>
+</body>
+</html>
