@@ -1,10 +1,13 @@
 
+  // Toggling the Mobile Menu
   function toggleMenu() {
     const menu = document.querySelector('.mobile-menu');
     menu.classList.toggle('active');
   }
 
-  // Close menu when clicking outside
+
+
+  // Closing the Menu When Clicking Elsewhere
   document.addEventListener('click', function(event) {
     const menu = document.querySelector('.mobile-menu');
     const hamburger = document.querySelector('.hamburger');
@@ -13,12 +16,18 @@
     }
   });
 
+
+
   // Close menu on window resize
   window.addEventListener('resize', function() {
     if (window.innerWidth > 768) {
       document.querySelector('.mobile-menu').classList.remove('active');
     }
   });
+
+
+
+  
 
   // Scroll animations
   document.addEventListener('DOMContentLoaded', function() {
@@ -41,16 +50,23 @@
 
 
 
-  
+  // Managing Cart and Favorites Data
   let cartItems = [];
-  let favoriteItems = []; // Fixed: Single declaration
+  let favoriteItems = []; 
 
+
+
+  //Adding Items to Cart
   function addToCart(name, price, details) {
     cartItems.push({ name, price, details });
     updateCartTable();
     alert(`${name} added to cart!`);
   }
 
+
+
+
+  //Transferring Favorites into the Cart
   function transferFavoritesToCart() {
   favoriteItems.forEach(favItem => {
     if (!cartItems.some(item => item.name === favItem.name)) {
@@ -65,6 +81,12 @@
   alert('Favorites transferred to cart!');
 }
 
+
+
+
+
+
+  //Displaying the Cart in a Table
   function updateCartTable() {
     const tbody = document.querySelector('#cartTable tbody');
     tbody.innerHTML = '';
@@ -83,6 +105,10 @@
     });
   }
 
+
+
+
+  //Removing an Item from the Cart
   function removeCartItem(index) {
     if (index >= 0 && index < cartItems.length) {
       cartItems.splice(index, 1);
@@ -91,6 +117,12 @@
     }
   }
 
+
+
+
+
+
+  //Toggling Favorites
   function toggleFavorite(name, button) {
   const heartIcon = button.nextElementSibling;
   const productContent = button.closest('.product-content');
@@ -120,13 +152,22 @@
     alert(`${name} removed from favorites!`);
   }
 }
-  
+
+
+
+
+
+
+
+  //Proceeding to Checkout
   function proceedToCheckout() {
   // Save cart items to localStorage
   localStorage.setItem('cartItems', JSON.stringify(cartItems));
   // Redirect to checkout page
   window.location.href = 'checkout.html';
 }
+
+
 
 
 
